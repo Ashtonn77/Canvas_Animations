@@ -1,0 +1,104 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: darkslategray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.menu-btn{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    border: 3px solid white;
+}
+
+.menu-btn_burger{
+    width: 50px;
+    height: 6px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(255, 101, 47, .2);
+    transition: all 0.5s ease-in-out;
+}
+
+.menu-btn_burger::before,
+.menu-btn_burger::after{
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 6px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(255, 101, 47, .2);
+    transition: all 0.5s ease-in-out;
+}
+
+.menu-btn_burger::before{
+    transform: translateY(-16px);
+}
+
+.menu-btn_burger::after{
+    transform: translateY(16px);
+}
+
+
+.menu-btn.open .menu-btn_burger{
+    transform: translateX(-50px);
+    background: transparent;
+    box-shadow: none;
+}
+.menu-btn.open .menu-btn_burger::before{
+    transform: rotate(45deg) translate(35px, -35px);
+}
+.menu-btn.open .menu-btn_burger::after{
+    transform: rotate(-45deg) translate(35px, 35px);
+}
+
+
+#controls
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  left: 120%;
+  position: absolute;
+  width: 200px;
+  height: 200px; 
+  transition: all 0.5s ease-in-out;
+  transform: translateY(-100%);
+  opacity: 0; 
+  color: white;
+}
+
+#controls.open{
+    transition: all 0.5s ease-in-out;
+    transform: translateY(15%);
+    left: 120%;
+    position: absolute;
+    opacity: 1;    
+}
+
+.test{  
+  font-family: monospace;  
+  margin: 15px;  
+}
+
+#one:hover, #two:hover,
+#void:hover, #four:hover{
+   cursor: pointer;
+   color: lime;
+   outline: none;
+}
+
