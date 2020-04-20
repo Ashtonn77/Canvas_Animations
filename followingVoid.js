@@ -62,9 +62,9 @@ export function Particle(x, y, radius, color){
 }
 
 let particles;
-export function voidInit(){
+export function voidInit(numberOfItems){
     particles = [];
-    for(let i = 0; i < 50; i++){
+    for(let i = 0; i < numberOfItems; i++){
         let radius = Math.random() * 2 + 1;
         let color = voidColors[Math.floor(getRandom(0, voidColors.length))];      
         particles.push(new Particle(canvas.width / 2, canvas.height / 2, radius, color));
