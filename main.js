@@ -1,5 +1,6 @@
 import { voidInit, voidAnimate } from './followingVoid.js';
 import { gravityInit, gravityAnimate } from './gravity.js';
+import { sineWaveAnimate } from './sineWave.js';
 
 let canvas = document.querySelector('canvas');
 canvas.width = innerWidth;
@@ -12,8 +13,9 @@ let c = canvas.getContext('2d');
     
     let voidStart = false;
     let gravityStart = false;
+    let waveStart = false;
 
-    //void button
+    // //void button
     // let followingVoidBtn = document.getElementById('void');
     // followingVoidBtn.addEventListener('click', function(){
     //     if(!voidStart){
@@ -25,15 +27,24 @@ let c = canvas.getContext('2d');
 
     // })
 
-    //gravity button
-    let gravityBtn = document.getElementById('gravity');
-    gravityBtn.addEventListener('click', function(){
-        if(!gravityStart){
-            gravityInit(100);
-            gravityAnimate();
-            gravityStart = true;
+    // //gravity button
+    // let gravityBtn = document.getElementById('gravity');
+    // gravityBtn.addEventListener('click', function(){
+    //     if(!gravityStart){
+    //         gravityInit(100);
+    //         gravityAnimate();
+    //         gravityStart = true;
+    //     }
+    //     else gravityInit();
+    // })
+
+
+    let waveBtn = document.getElementById('wave');
+    waveBtn.addEventListener('click', function(){
+        if(!waveStart){
+            sineWaveAnimate();
+            waveStart = true;
         }
-        else gravityInit();
     })
 
 
