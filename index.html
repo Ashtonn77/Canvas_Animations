@@ -4,67 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>canvas</title>
-    <style>
-
-#controls
-{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  top: 5%;
-  left: 5%;
-  position: absolute;
-  width: 200px;
-  height: 200px; 
-}
-
-.test{
-  border: 1px solid blue;
-  border-radius: 25%;
-  padding: 5px;
-  font-family: monospace;
-  margin-bottom: 10px;
-  outline: none;
-  color: lime;
-}
-
-#one:hover{
-  cursor: pointer;
-  background-color: coral;
-}
-
-#two:hover{
-  cursor: pointer;
-  background-color: blueviolet;
-}
-
-#three:hover{
-  cursor: pointer;
-  background-color: greenyellow;
-}
-
-#four:hover{
-  cursor: pointer;
-  background-color: palevioletred;
-}
-
-    </style>
+    <link rel="stylesheet" href="style.css">
     
 </head>
 <body>
+
     
-    <div id="container">
         <canvas id="viewport">
         </canvas>
-        <menu id="controls">
-            <div id="one" class="test">Gravity</div>
-            <div id="two" class="test">Floating</div>
-            <div id="three" class="test">Following Void</div>
-            <div id="four" class="test">Collision</div>         
-            <div id="five" class="test">Sine Wave</div>     
-        </menu>
-      </div>
+        <div class="menu-btn">
+            <div class="menu-btn_burger"></div>
+            <menu id="controls">
+                <div id="gravity" class="test">Gravity</div>
+                <div id="floating" class="test">Floating</div>
+                <div id="void" class="test">Following Void</div>
+                <div id="collision" class="test">Collision</div>         
+                <div id="wave" class="test">Sine Wave</div>     
+            </menu>
+        </div>
+      
+      
       <script type="module" src="main.js"></script>
 </body>
 </html>
