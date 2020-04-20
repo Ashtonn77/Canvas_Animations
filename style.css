@@ -95,8 +95,8 @@ body{
   margin: 15px;  
 }
 
-#one:hover, #two:hover,
-#void:hover, #four:hover{
+#gravity:hover, #floating:hover,
+#void:hover, #collision:hover, #wave:hover{
    cursor: pointer;
    color: lime;
    outline: none;
