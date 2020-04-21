@@ -1,10 +1,11 @@
 import { canvas, c } from './main.js';
 
-
     let frequency = 0.02;
     let increment = frequency;
+
+    let startWaveSnimation;
     export function sineWaveAnimate(){
-      requestAnimationFrame(sineWaveAnimate);
+      startWaveSnimation = requestAnimationFrame(sineWaveAnimate);
     
     c.fillStyle = 'rgba(0, 0, 0, 0.1)';
      c.fillRect(0, 0, canvas.width, canvas.height)
@@ -20,4 +21,5 @@ import { canvas, c } from './main.js';
     increment += frequency;
     }
     
+    export {startWaveSnimation};
     
