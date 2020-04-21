@@ -4,11 +4,11 @@
 }
 
 body{
-    background-color: darkslategray;
+    background-color: #486B73;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    min-height: 100vh;    
 }
 
 .menu-btn{
@@ -20,13 +20,13 @@ body{
     height: 80px;
     cursor: pointer;
     transition: all 0.5s ease-in-out;
-    border: 3px solid white;
+    border: 3px solid #BBF2E8;
 }
 
 .menu-btn_burger{
     width: 50px;
     height: 6px;
-    background: white;
+    background: #BBF2E8;
     border-radius: 5px;
     box-shadow: 0px 2px 5px rgba(255, 101, 47, .2);
     transition: all 0.5s ease-in-out;
@@ -38,7 +38,7 @@ body{
     position: absolute;
     width: 50px;
     height: 6px;
-    background: white;
+    background: #BBF2E8;
     border-radius: 5px;
     box-shadow: 0px 2px 5px rgba(255, 101, 47, .2);
     transition: all 0.5s ease-in-out;
@@ -75,30 +75,32 @@ body{
   left: 120%;
   position: absolute;
   width: 200px;
-  height: 200px; 
+  height: 300px; 
   transition: all 0.5s ease-in-out;
-  transform: translateY(-100%);
+  transform: translateY(-50%);
   opacity: 0; 
-  color: white;
+  color: #BBF2E8;  
+  border: 3px solid #BBF2E8;
 }
 
 #controls.open{
     transition: all 0.5s ease-in-out;
-    transform: translateY(15%);
+    transform: translateY(-2%);
     left: 120%;
     position: absolute;
     opacity: 1;    
 }
 
 .test{  
-  font-family: monospace;  
+  font-family: 'Bangers', cursive;
+  letter-spacing: 2px;
   margin: 15px;  
 }
 
 #gravity:hover, #floating:hover,
 #void:hover, #collision:hover, #wave:hover{
    cursor: pointer;
-   color: lime;
+   color: #FF00FF;
    outline: none;
 }
 
