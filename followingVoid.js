@@ -1,20 +1,7 @@
 import { canvas, c } from './main.js';
+import { mouse, getRandom } from './mainClass.js';
 
 const voidColors = ['#AB05F2', '#7D07F2', '#5207F2', '#23D9B7', '#D7F205'];
-
-export function getRandom(min, max){
-    return Math.random() * (max - min) + min;
-}
-
-let mouse = {
-    x:null,
-    y:null
-}
-
-addEventListener('mousemove', function(event){
-    mouse.x = event.clientX;
-    mouse.y = event.clientY;
-})
 
 export function Particle(x, y, radius, color){
     this.x = x;
@@ -22,13 +9,12 @@ export function Particle(x, y, radius, color){
     this.radius = radius;
     this.color = color;
     this.radians = Math.random() * Math.PI * 2;
-    this.velocity = 0.05;
+    this.voidVelocity = 0.05;
     this.distanceFromCenter = getRandom(60, 150);
     this.lastMouseMove = {
         x:x,
         y:y
     }
-
 
     this.draw = (lastMove) => {
         c.beginPath();
@@ -47,7 +33,7 @@ export function Particle(x, y, radius, color){
         }
 
         //allow particles to move in a circular motion
-        this.radians += this.velocity;
+        this.radians += this.voidVelocity;
 
         //mouse drag effect
         this.lastMouseMove.x += (mouse.x - this.lastMouseMove.x) * 0.05;
@@ -80,3 +66,5 @@ export function voidAnimate(){
         particle.update(c);
     })
 }
+
+export {startVoidAnimate};
