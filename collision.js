@@ -1,5 +1,6 @@
 import { canvas, c } from './main.js';
 import { getRandom } from './followingVoid.js';
+import { Ball } from './gravity.js';
 
 const mouse = {
       x: innerWidth / 2,
@@ -26,7 +27,7 @@ const mouse = {
     * @return Null | Does not return a value
     */
     
-    function resolveCollision(particle, otherParticle) {
+    export function resolveCollision(particle, otherParticle) {
       const xVelocityDiff = particle.velocity.x - otherParticle.velocity.x;
       const yVelocityDiff = particle.velocity.y - otherParticle.velocity.y;
     
@@ -79,74 +80,13 @@ const mouse = {
       init()
     })
     
-    function distance(x1, y1, x2, y2){
+    export function distance(x1, y1, x2, y2){
       let xDistance = x2 - x1;
       let yDistance = y2 - y1;
     
       return Math.sqrt(Math.pow(xDistance, 2) + Math.pow(yDistance, 2));
     }
-     
-    // Objects
-    class Particle{
-      constructor(x, y, radius, color) {
-        this.x = x
-        this.y = y
-        this.radius = radius
-        this.color = color
-        this.velocity = {
-          x: (Math.random() - 0.5) + 2,
-          y: (Math.random() - 0.5) + 2
-        }
-        this.mass = 1;
-        this.opacity = 0;
-      }
-    
-      draw() {
-        c.beginPath()
-        c.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false)
-        c.save();
-        c.globalAlpha = this.opacity;   
-        c.fillStyle = this.color;   
-        c.fill();
-        c.restore();
-        c.strokeStyle = this.color
-        c.stroke()
-        c.closePath()
-      }
-    
-      update(particles) {
-        this.draw()
-    
-        for(let i = 0; i < particles.length; i++){
-          if(this == particles[i]) continue;
-    
-          if(distance(this.x, this.y, particles[i].x, particles[i].y) - this.radius *2 < 0){
-            resolveCollision(this, particles[i]);
-         }
-        }
-    
-        if(this.x + this.radius > innerWidth || this.x - this.radius < 0){
-          this.velocity.x = -this.velocity.x;
-        }
-    
-        if(this.y + this.radius > innerHeight || this.y - this.radius < 0){
-          this.velocity.y = -this.velocity.y;
-        }
-    
-        if(distance(mouse.x, mouse.y, this.x, this.y) < 80 && this.opacity < 0.2){
-          this.opacity += 0.02;
-       }else if(this.opacity > 0){
-         this.opacity -= 0.02;
-         this.opacity = Math.max(0, this.opacity);
-       }
-    
-        this.x += this.velocity.x;
-        this.y += this.velocity.y;
-    
-      }
-    
-    }
-    
+      
     let particles;
     export function collideInit(){
       particles = [];
@@ -165,20 +105,20 @@ const mouse = {
               }
           }
     
-          particles.push(new Particle(x, y, radius, color))
+          particles.push(new Ball(x, y, radius, null, null, color))
         }
     }
     
     let startCollideAnimation;
     export function collideAnimate(){
       startCollideAnimation = requestAnimationFrame(collideAnimate);
-      c.fillStyle = 'rgba(0 , 0, 0, 0.1)';
+      c.fillStyle = 'rgba(0 , 0, 0, 0.5)';
       c.fillRect(0, 0, canvas.width, canvas.height);
     
       particles.forEach( particle => {
-        particle.update(particles);
+        particle.collisionUpdate(particles);
       });
     
     }
    
-    export {startCollideAnimation};
+    export {startCollideAnimation, particles };
