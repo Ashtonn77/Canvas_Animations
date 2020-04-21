@@ -1,26 +1,6 @@
 import { canvas, c } from './main.js';
-import { Ball } from './gravity.js'
-
-    let mouse = {
-        x: undefined,
-        y: undefined
-    }
-
-    let maxRadius = 40;
-    let colorsArray = ['#281040', '#F2F2F2', '#253659', '#0FA6A6', '#07F2DB'];
-
-    window.addEventListener('mousemove', function(event){
-                mouse.x = event.x;
-                mouse.y = event.y;                
-    })
-
-    window.addEventListener('resize', function(){
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        init();
-    })
-   
+import { Ball, mouse } from './mainClass.js'
+      
     let x, y, dx, dy, radius;
     let circleArray = []; 
 
